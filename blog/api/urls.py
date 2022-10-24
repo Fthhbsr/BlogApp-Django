@@ -1,14 +1,25 @@
+from django.urls import path
 from .views import (
+    BlogPostDetailView,
     CategoryView,
-    BlogPostView
+    BlogPostView,
+    CommentView,
+    LikeView
 )
-from rest_framework import routers
+# from rest_framework import routers
 
-router = routers.DefaultRouter()
-router.register('category', CategoryView)
-router.register('post', BlogPostView)
+# router = routers.DefaultRouter()
+# router.register('category', CategoryView)
+# router.register('blog', BlogPostView)
+# router.register('like', LikeView)
 
 
 urlpatterns = [
+    path('category/', CategoryView.as_view()),
+    path('like/', LikeView.as_view()),
+    path('blog/', BlogPostView.as_view()),
+    path('blog/<str:slug>/', BlogPostDetailView.as_view()),
+    path("blog/<str:slug>/add_comment/", CommentView.as_view()),
 
-] + router.urls
+]
+# urlpatterns += router.urls

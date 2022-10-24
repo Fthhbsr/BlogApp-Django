@@ -58,7 +58,7 @@ class Comment(models.Model):
         return self.user.username
 
 
-class Post_view(models.Model):
+class PostView(models.Model):
     user = models.ForeignKey(User, related_name="post_viewed_user", on_delete=models.PROTECT)
     post = models.ForeignKey(BlogPost, related_name="viewed_post", on_delete=models.CASCADE)
     viewed_date_time = models.DateTimeField(auto_now_add=True, blank=True)
