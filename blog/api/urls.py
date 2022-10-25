@@ -17,9 +17,9 @@ from .views import (
 urlpatterns = [
     path('category/', CategoryView.as_view()),
     path('like/', LikeView.as_view()),
-    path('blog/', BlogPostView.as_view()),
-    path('blog/<str:slug>/', BlogPostDetailView.as_view()),
-    path("blog/<str:slug>/add_comment/", CommentView.as_view()),
+    path('posts/', BlogPostView.as_view()),
+    path('posts/<str:slug>/', BlogPostDetailView.as_view()),
+    path("posts/<str:slug>/add_comment/", CommentView.as_view()),
 
 ]
 # urlpatterns += router.urls
